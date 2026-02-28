@@ -10,3 +10,6 @@ __pycache__/
 
 # Data files 
 data/
+
+# Secrets
+config/secrets.yaml

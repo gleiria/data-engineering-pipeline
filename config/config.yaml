@@ -1,0 +1,6 @@
+cities:
+  - Berlin
+  - Lisbon
+  - London
+
+output_path: data/weather.parquet
