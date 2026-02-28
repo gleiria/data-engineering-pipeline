@@ -1,0 +1,12 @@
+# Virtual environment
+weather_venv/
+
+# IDE files
+.vscode/
+.idea/
+
+# Python cache
+__pycache__/
+
+# Data files 
+data/
