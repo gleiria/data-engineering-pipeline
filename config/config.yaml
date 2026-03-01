@@ -3,4 +3,5 @@ cities:
   - Lisbon
   - London
 
+units: metric
 output_path: data/weather.parquet
