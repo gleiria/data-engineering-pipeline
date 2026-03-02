@@ -10,6 +10,9 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__)
 
+logger.info("Starting weather pipeline...")
 
 if __name__ == "__main__":
     run_pipeline()
+
+logger.info("Pipeline finished.")
