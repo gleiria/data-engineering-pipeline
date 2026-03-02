@@ -1,7 +1,7 @@
 """Entry point for the pipeline."""
 
 import logging
-from pipeline import run_pipeline
+from src.pipeline import run_pipeline
 
 # configuring logging
 logging.basicConfig(
@@ -11,8 +11,10 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 logger.info("Starting weather pipeline...")
+print("------------------------------")
 
 if __name__ == "__main__":
     run_pipeline()
 
+print("------------------------------")
 logger.info("Pipeline finished.")

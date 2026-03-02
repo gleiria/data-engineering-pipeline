@@ -4,11 +4,6 @@ import pytest
 from unittest.mock import MagicMock
 from src.client import load_yaml, fetch_weather
 
-# I will perform pure unit tests only:
-# • Does load_yaml() correctly read YAML?
-# • Does fetch_weather() correctly handle a successful response?
-# • Does it raise an error on failure?
-
 def test_load_yaml(tmp_path: Path):
     # arrange: Given a sample YAML file
     sample_yaml = """
