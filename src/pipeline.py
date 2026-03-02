@@ -5,7 +5,7 @@ import logging
 import pandas as pd
 import os
 from datetime import datetime
-from client import fetch_weather, load_yaml
+from src.client import fetch_weather, load_yaml
 
 
 logger = logging.getLogger(__name__)
@@ -24,7 +24,7 @@ def run_pipeline():
     # list to hold weather records
     weather_records = []
 
-    # Fetch weather data for each configured city
+    # Fetch weather data for each city in config 
     for city in config['cities']:
         try:
             data = fetch_weather(city, api_key, units)
@@ -35,9 +35,12 @@ def run_pipeline():
             # Create weather record with timestamp
             record = {
                 'city': city,
-                'temperature': data['main']['temp'],
-                'description': data['weather'][0]['description'],
-                "timestamp": datetime.now().isoformat()
+                "temperature": data['main']['temp'],
+                "humidity": data['main']['humidity'],
+                "pressure": data['main']['pressure'],
+                "description": data['weather'][0]['description'],
+                "observation_time": datetime.fromtimestamp(data["dt"]).isoformat(),
+                "ingestion_time": datetime.now().isoformat()
             }
             weather_records.append(record)
             logger.info(f"Record for {city} added to weather_records")
