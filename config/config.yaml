@@ -2,6 +2,8 @@ cities:
   - Berlin
   - Lisbon
   - London
+  - Amsterdam
+  - Paris
 
 units: metric
 output_path: data/weather.parquet

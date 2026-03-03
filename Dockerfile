@@ -14,4 +14,5 @@ COPY config ./config
 # create data directory for storing results
 RUN mkdir -p data
 
+# run the application
 CMD ["python", "-m", "src.main"]
