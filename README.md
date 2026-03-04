@@ -151,15 +151,16 @@ Assignment instructions state that the primary consumers are Data Scientists per
 2. Historical data required for hypothesis testing. The pipeline appends data rather than overwriting.
 
 3. Event time vs ingestion time integrated to support:
-    * Deduplication
     * Latency analysis
+    * Pipeline failures
+    * Important to know when event occured vs when the system processed it
 
 4. Data Volume is moderate
     * The list of records approach assumes a configurable but reasonably bounded number of cities
     * Keeps solution simple and sufficient for expected scale
 
 5. Reliability prioritised over infrastructure complexity
-    * I aimed for a solution aligned with some production patterns wihtout overengineer infrastructure or unnecessary services
+    * I aimed for a solution aligned with some production patterns wihtout overengineering infrastructure or unnecessary services
 
 ## How to run
 
