@@ -6,4 +6,3 @@ cities:
   - Paris
 
 units: metric
-output_path: data/weather.parquet

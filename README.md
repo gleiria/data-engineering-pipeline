@@ -1,7 +1,7 @@
 # Data Engineering Pipeline
 ---
 ## Overview
-This project implements a Dockerized Python data pipeline that collects weather data from the OpenWeather public API and stores it in Parquet format for downstream analytical use.
+This project implements a Dockerised Python data pipeline that collects weather data from the OpenWeather public API and stores it in Parquet format for downstream analytical use.
 
 **The pipeline:**
 
@@ -50,7 +50,7 @@ weather_pipeline/
 * Orchestrates the pipeline workflow
 * Loads configuration and secrets
 * Fetches data for each configured city
-* Transforms responses into tabular format
+* Transforms JSNON responses into tabular format
 * Persists results as Parquet
 
 `main.py`
@@ -115,12 +115,15 @@ weather_pipeline/
     * Structured operational output 
     * Error and warning reporting
 
-7. Testing
+7. Resilience and fault tolerance
+    * Per-city try/except isolation to ensure failure for one city does not stop pipeline
+
+8. Testing
     * Unit tests to validate:
         * YAML loading
         * API client behavior 
 
-8. Continuous Integration
+9. Continuous Integration
 
     * I did setup a minimal GitHub Actions workflow that runs tests on every push to dev_branch on remote.
 
@@ -163,7 +166,7 @@ Assignment instructions state that the primary consumers are Data Scientists per
 1. Clone Repository
 ```bash
 git clone https://github.com/gleiria/data-engineering-pipeline.git
-cd weather_pipeline
+cd data-engineering-pipeline
 ```
 
 2. Create secrets file
@@ -203,9 +206,6 @@ import pandas as pd
 df = pd.read_parquet("data/weather_data.parquet")
 print(df.head())
 ```
-
-
-
 
 
 
