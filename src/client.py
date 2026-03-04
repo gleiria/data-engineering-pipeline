@@ -18,7 +18,7 @@ def fetch_weather(city: str, api_key: str, units: str) -> dict:
         'appid': api_key,
         'units': units
     }
-    # send GET request
+    # GET request
     response = requests.get(ENDPOINT, params=params)
     # check success or rise error
     response.raise_for_status()
