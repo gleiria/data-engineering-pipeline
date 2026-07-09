@@ -51,36 +51,3 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: |
           docker push ${{ secrets.ACR_LOGIN_SERVER }}/weather-pipeline:latest
-
-# name: WorkFlowConfiguration
-
-# on:
-#   push:
-#     branches:
-#       - main
-#       - "**"
-#   pull_request:
-#     branches:
-#       - main
-
-# jobs:
-#   automated-tests:
-#     runs-on: ubuntu-latest
-
-#     steps:
-#       - name: Checkout code
-#         uses: actions/checkout@v3
-
-#       - name: Set up Python
-#         uses: actions/setup-python@v4
-#         with:
-#           python-version: "3.12.2"
-
-#       - name: Install dependencies
-#         run: |
-#           python -m pip install --upgrade pip
-#           pip install -r requirements.txt
-
-#       - name: Run tests
-#         run: |
-#           PYTHONPATH=. pytest -s -v
