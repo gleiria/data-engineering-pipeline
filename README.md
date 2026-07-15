@@ -4,15 +4,18 @@
 
 ## Overview
 
-This project implements a Dockerised Python data pipeline that collects weather data from the OpenWeather public API and stores it in Parquet format for downstream analytical use.
+This project implements an end-to-end Dockerised Python data pipeline that collects real-time meteorological data from the OpenWeather public API and stores it as a Parquet dataset for downstream analytical workloads.
+
+The pipeline is deployed on Microsoft Azure and demonstrates modern data engineering practices including containerisation, cloud storage, automated scheduling, and continuous integration/continuous deployment (CI/CD).
 
 **The pipeline:**
 
 - Fetches weather data for a configurable list of cities
 - Extracts structured analytical fields
 - Stores results as a Parquet dataset
-- Logs execution events
-- Runs reproducibly inside Docker
+- Uploads the dataset to Azure Blob Storage
+- Executes automatically every day via Azure Data Factory
+- Uses GitHub Actions to automatically test, build, and publish Docker images to Azure Container Registry
 
 ---
 
@@ -20,11 +23,11 @@ This project implements a Dockerised Python data pipeline that collects weather 
 
 ![Cloud Architecture](images/cloud_diagram.png)
 
+The pipeline is deployed on Microsoft Azure using Docker containers. GitHub Actions automatically runs tests on every push and builds/pushes the Docker image to Azure Container Registry when changes are merged into the main branch. Azure Data Factory triggers the Azure Container Instance daily at 05:00, which executes the pipeline and stores the resulting Parquet dataset in Azure Blob Storage.
+
 ---
 
-## Architecture
-
-**Project File Structure**
+## Project File Structure
 
 ```
 weather_pipeline/
