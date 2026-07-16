@@ -23,7 +23,9 @@ The pipeline is deployed on Microsoft Azure and demonstrates modern data enginee
 
 ![Cloud Architecture](images/cloud_diagram.png)
 
-The pipeline is deployed on Microsoft Azure using Docker containers. GitHub Actions automatically runs tests on every push and builds/pushes the Docker image to Azure Container Registry when changes are merged into the main branch. Azure Data Factory triggers the Azure Container Instance daily at 05:00, which executes the pipeline and stores the resulting Parquet dataset in Azure Blob Storage.
+The pipeline is deployed on Microsoft Azure using Docker containers. GitHub Actions automatically runs tests on every push and builds/pushes the Docker image to Azure Container Registry when changes are merged into the main branch. Azure Data Factory triggers the Azure Container Instance daily, which executes the pipeline and stores the resulting Parquet dataset in Azure Blob Storage.
+
+More details about the deployment can be found on this [blog post](https://gleiria.github.io/blog/deployment/).
 
 ---
 
@@ -70,7 +72,7 @@ weather_pipeline/
 
 - Application entry point
 - Configures logging
-- ## Starts pipeline execution
+- Starts pipeline execution
 
 ## Data Model
 
