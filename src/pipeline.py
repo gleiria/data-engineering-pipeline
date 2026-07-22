@@ -33,7 +33,7 @@ def run_pipeline():
     # lissto for weather records
     weather_records = []
 
-    # grab weather data for each city in config 
+    # grab weather data for each city in config
     for city in config["cities"]:
         try:
             data = fetch_weather(city, api_key, units)
@@ -70,7 +70,6 @@ def run_pipeline():
     logger.info("Pipeline finished")
 
     # --------- Store data in parquet file -----------
-
 
     if weather_records:
         df = pd.DataFrame(weather_records)
@@ -131,6 +130,6 @@ def run_pipeline():
             df.to_parquet(filename, engine="pyarrow", index=False)
             logger.info(f"Saved {len(df)} records locally to {filename}")
 
-    # This else goes with "if weather_records:" 
+    # This else goes with "if weather_records:"
     else:
         logger.warning("No weather data collected.")
