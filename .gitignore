@@ -7,9 +7,16 @@ weather_venv/
 
 # Python cache
 __pycache__/
+*.py[cod]
 
-# Data files 
+# Test cache
+.pytest_cache/
+
+# Local data
 data/
 
 # Secrets
 config/secrets.yaml
+
+# Django local database
+db.sqlite3
